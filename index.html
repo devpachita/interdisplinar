@@ -137,6 +137,7 @@
       <li><a href="#google">Google Calendar</a></li>
       <li><a href="#outlook">Outlook</a></li>
       <li><a href="#guia">Guía: crear páginas así</a></li>
+      <li><a href="#publicar">Publicar en GitHub</a></li>
     </ul>
   </div>
 </nav>
@@ -152,6 +153,7 @@
       <a href="#google">Google</a>
       <a href="#outlook">Outlook</a>
       <a href="#guia">Guía de creación</a>
+      <a href="#publicar">Publicar</a>
     </div>
   </div>
 </header>
@@ -366,6 +368,62 @@ REQUISITOS:
         <div class="alert warn"><b>Antes de compartir:</b> revisa que tus capturas no muestren tokens, contraseñas, correos ni nombres que no quieras publicar. La URL de exportación de Moodle incluye un token que da acceso a tu calendario.</div>
       </div>
     </section>
+
+    <!-- ============ PUBLICAR EN GITHUB PAGES ============ -->
+    <section class="topic" id="publicar">
+      <div class="topic-head"><div class="num" style="background:#24292f">↗</div><h2>Publica tu página con GitHub Pages</h2></div>
+      <div class="topic-body">
+        <p>GitHub Pages aloja gratis páginas web estáticas. Como este tutorial es un solo archivo HTML (con las imágenes incrustadas), basta con subirlo y activar una opción. No necesitas instalar nada ni usar la terminal.</p>
+
+        <h4>1. Prepara el archivo</h4>
+        <p>Cambia el nombre de tu archivo a <span class="kbd">index.html</span>, todo en minúsculas. GitHub Pages abre ese nombre por defecto y así el enlace final queda limpio.</p>
+
+        <h4>2. Crea una cuenta o inicia sesión</h4>
+        <p>Entra a <a href="https://github.com" target="_blank" rel="noopener">github.com</a>. Si no tienes cuenta, créala gratis con tu correo.</p>
+
+        <h4>3. Crea un repositorio público</h4>
+        <ol class="steps">
+          <li>Pulsa el botón verde <span class="kbd">New</span> (o entra a <a href="https://github.com/new" target="_blank" rel="noopener">github.com/new</a>).</li>
+          <li>En <b>Repository name</b> escribe un nombre sin espacios, por ejemplo <span class="kbd">guia-calendario-moodle</span>.</li>
+          <li>Déjalo en <b>Public</b>. En el plan gratuito, Pages solo funciona con repositorios públicos.</li>
+          <li>Pulsa <span class="kbd">Create repository</span>.</li>
+        </ol>
+
+        <h4>4. Sube el archivo</h4>
+        <ol class="steps">
+          <li>En el repositorio nuevo, haz clic en el enlace <b>uploading an existing file</b> (o en <span class="kbd">Add file</span> → <span class="kbd">Upload files</span>).</li>
+          <li>Arrastra tu <span class="kbd">index.html</span> a la zona de carga.</li>
+          <li>Baja y pulsa <span class="kbd">Commit changes</span>.</li>
+        </ol>
+
+        <h4>5. Activa GitHub Pages</h4>
+        <ol class="steps">
+          <li>Dentro del repositorio, haz clic en la pestaña <b>Settings</b> de la barra superior (junto a Code, Issues y Pull requests).</li>
+          <li>En el menú izquierdo, sección «Code and automation», entra a <b>Pages</b>.</li>
+          <li>En <b>Source</b> elige <b>Deploy from a branch</b>.</li>
+          <li>En <b>Branch</b> selecciona <span class="kbd">main</span> con la carpeta <span class="kbd">/ (root)</span> y pulsa <span class="kbd">Save</span>.</li>
+        </ol>
+        <div class="alert warn"><b>Error común:</b> no uses el menú de tu avatar → Settings → Pages. Esa pantalla (<i>github.com/settings/pages</i>) es solo para verificar dominios y no tiene la opción de publicar. La correcta está dentro del repositorio.</div>
+
+        <h4>6. Abre tu enlace</h4>
+        <p>En uno o dos minutos, recarga la página de Pages: aparecerá el aviso <i>«Your site is live at…»</i>. La dirección tiene esta forma:</p>
+        <p><span class="kbd">https://TU-USUARIO.github.io/NOMBRE-DEL-REPOSITORIO/</span></p>
+        <div class="alert ok"><b>Listo.</b> Ese es el enlace que puedes compartir con tus compañeros.</div>
+
+        <h4>7. Cómo actualizarla después</h4>
+        <p>Vuelve al repositorio, elige <span class="kbd">Add file</span> → <span class="kbd">Upload files</span>, sube el nuevo <span class="kbd">index.html</span> con el mismo nombre y confirma con <span class="kbd">Commit changes</span>. Los cambios se publican solos en un par de minutos.</p>
+
+        <h4>Si algo no funciona</h4>
+        <div class="grid2">
+          <div class="tile"><b>Aparece un error 404</b>Revisa que el archivo se llame exactamente <span class="kbd">index.html</span> y que esté en la raíz del repositorio, no dentro de una carpeta. Espera unos minutos y recarga.</div>
+          <div class="tile"><b>No veo la opción Pages</b>Confirma que estás en <b>Settings del repositorio</b> y que el repositorio es <b>Public</b>.</div>
+          <div class="tile"><b>Subí cambios y no se ven</b>Espera 1 o 2 minutos y recarga sin caché con <span class="kbd">Ctrl</span> + <span class="kbd">F5</span>.</div>
+          <div class="tile"><b>Quiero una dirección propia</b>En la misma pantalla de Pages puedes agregar un <b>Custom domain</b> si tienes un dominio comprado.</div>
+        </div>
+
+        <div class="alert info" style="margin-top:18px"><b>Recuerda:</b> una página en GitHub Pages es pública y cualquiera con el enlace puede verla. Antes de publicar, revisa que tus capturas no muestren tokens, contraseñas, correos ni nombres que no quieras exponer.</div>
+      </div>
+    </section>
   </div>
 </main>
 
@@ -416,7 +474,7 @@ REQUISITOS:
 
   // ---- Resaltar enlace activo del nav ----
   var links = document.querySelectorAll('.nav-links a');
-  var secs = ['inicio','pasos','google','outlook','guia'].map(function(id){return document.getElementById(id)});
+  var secs = ['inicio','pasos','google','outlook','guia','publicar'].map(function(id){return document.getElementById(id)});
   window.addEventListener('scroll', function(){
     var y = window.scrollY + 120, cur = 0;
     secs.forEach(function(s,i){ if(s && s.offsetTop <= y) cur = i; });
